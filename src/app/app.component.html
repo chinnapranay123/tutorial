@@ -1,26 +1,18 @@
-
-<mat-toolbar  class="navbar">
+<mat-toolbar class="navbar">
   <div>Tutorials</div>
-<div class="right-menu">
-  <button class="menu-button"><span>Courses</span></button>
-  <div class="dropdown-menu" *ngFor="let item of data">
-
-    <a href ="{{item.link1}}">Bigdata</a>
-
-
-    <a href ="{{item.link2}}" id="playvideo">Java</a>
-
-
-
-
-    <div class="video"><a href ="{{item.link3}}">Angular</a></div>
+  <div class="right-menu">
+    <button class="menu-button"><span>Courses</span></button>
+    <div class="dropdown-menu">
+      <a *ngFor="let item of data" (click)="playVideoInEmbedFrame(item.link)">{{ item.coursename }}</a>
+    </div>
   </div>
-</div>
-
-<div class="text">
-  <span>Home</span>
-  <span>About</span>
-</div>
+  <div class="text">
+    <span>Home</span>
+    <span>About</span>
+  </div>
 </mat-toolbar>
-
-
+<br />
+<iframe *ngIf="playableSelected" width="560" height="315" [src]="selectedVideo" title="YouTube video player"
+  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
