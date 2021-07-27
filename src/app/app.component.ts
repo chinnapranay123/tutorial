@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { UsersService } from './users.service';
-import * as $ from "jquery";
 import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
